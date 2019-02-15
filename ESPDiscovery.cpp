@@ -13,11 +13,9 @@ void Discovery::handle() {
     char pktBuf[pktSize+1];
     pktBuf[pktSize] = 0;
     discoveryUDP.read(pktBuf, pktSize);
-    // Serial.print(pktBuf);
     if(strcmp(pktBuf, discoveryString) == 0) {
-          Serial.println("Thermostaat");
       discoveryUDP.beginPacket(discoveryUDP.remoteIP(), discoveryUDP.remotePort());
-      discoveryUDP.write("Thermostaat");
+      discoveryUDP.write(this->answer);
       discoveryUDP.endPacket();
     }
   }
