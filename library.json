@@ -1,0 +1,26 @@
+{
+    "name": "ESPDiscovery",
+    "keywords": "UDP Discovery",
+    "description": "Discover ESP8266 in local network using UDP",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/1voud/ESPDiscovery.git"
+    },
+    "authors":
+    [
+      {
+        "name": "Johan Bakker",
+        "email": "bartox@outlook.com",
+        "url": "https://github.com/1voud/ESPDiscovery.git",
+        "maintainer": true
+      }
+    ],
+    "dependencies":
+    {
+    },
+    "version": "0.0.1",
+    "frameworks": "arduino",
+    "platforms": "espressif8266"
+  }
+  
