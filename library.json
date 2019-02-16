@@ -1,7 +1,7 @@
 {
     "name": "ESPDiscovery",
     "keywords": "UDP Discovery",
-    "description": "Discover ESP8266 in local network using UDP",
+    "description": "Discover ESP8266 in local network using UDP broadcast",
     "repository":
     {
       "type": "git",

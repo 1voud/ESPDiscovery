@@ -1,22 +1,23 @@
 #include "ESPDiscovery.h"
 
-Discovery::Discovery(char*answer, int port, char* discoveryString) {
-    this->udpPort=port;
-    this->answer=answer;
-    this->discoveryString=discoveryString;
-    discoveryUDP.begin(udpPort);
+Discovery::Discovery(WiFiUDP&wifiUDP, const char* answer, int port, const char* discoveryString) {
+    this->udp = &wifiUDP;
+    this->udpPort = port;
+    this->answer = answer;
+    this->discoveryString = discoveryString;
+    this->udp->begin(udpPort);
 }
 
 void Discovery::handle() {
-  int pktSize = discoveryUDP.parsePacket();
+  int pktSize = this->udp->parsePacket();
   if (pktSize) {
     char pktBuf[pktSize+1];
     pktBuf[pktSize] = 0;
-    discoveryUDP.read(pktBuf, pktSize);
-    if(strcmp(pktBuf, discoveryString) == 0) {
-      discoveryUDP.beginPacket(discoveryUDP.remoteIP(), discoveryUDP.remotePort());
-      discoveryUDP.write(this->answer);
-      discoveryUDP.endPacket();
+    this->udp->read(pktBuf, pktSize);
+    if(strcmp(pktBuf, this->discoveryString) == 0) {
+      this->udp->beginPacket(this->udp->remoteIP(), this->udp->remotePort());
+      this->udp->write(this->answer);
+      this->udp->endPacket();
     }
   }
 }
