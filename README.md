@@ -1,9 +1,8 @@
 # ESPDiscovery
 Discover ESP8266 in local network using UDP
 
-```
 Java code to discover ESP8266 in your network:
-
+```
     import java.io.IOException;
     import java.net.DatagramPacket;
     import java.net.DatagramSocket;
