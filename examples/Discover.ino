@@ -1,3 +1,4 @@
+// Java and Python Discovery samples can be found in the README.md
 #include "Arduino.h"
 #include <ESP8266WiFi.h>
 #include "ESPDiscovery.h"
